@@ -6,25 +6,44 @@ const button = document.getElementById('main-button');
 const outputP = document.getElementById('output');
 
 // Add a click event listener to the button
+let codas, nuclei, onsets;
 
-fetch('/assets/syllable_list.txt')
-    .then(response => response.text())
-    .then(content => {
-        const syllableList = content.split('\n');
+Promise.all([
+    fetch('/assets/codas.txt').then(response => response.text()),
+    fetch('/assets/nuclei.txt').then(response => response.text()),
+    fetch('/assets/onsets.txt').then(response => response.text())
+])
+    .then(([codasContent, nucleiContent, onsetsContent]) => {
+        codas = codasContent.split(', ');
+        nuclei = nucleiContent.split(', ');
+        onsets = onsetsContent.split(', ');
+
         button.addEventListener('click', () => {
-            // Randomly pick two lines from the syllable list
-            const randomLine1 = syllableList[Math.floor(Math.random() * syllableList.length)];
-            console.log('randomLine1', randomLine1);
-            const randomLine2 = syllableList[Math.floor(Math.random() * syllableList.length)];
-            console.log('randomLine2', randomLine2);
 
-            // Concatenate the two lines
-            const newContent = randomLine1 + "-" + randomLine2;
+            let newContent = '';
+            for (let i = 0; i < 2; i++) {
+                var mode = Math.floor(Math.random() * 3);
+                const randomCoda = codas[Math.floor(Math.random() * codas.length)];
+                const randomNucleus = nuclei[Math.floor(Math.random() * nuclei.length)];
+                const randomOnset = onsets[Math.floor(Math.random() * onsets.length)];
+                if (mode === 0) {
+                    newContent += randomOnset + randomNucleus;
+                }
+                else if (mode === 1) {
+                    newContent += randomNucleus + randomCoda;
+                }
+                else if (mode === 2) {
+                    newContent += randomOnset + randomNucleus + randomCoda;
+                }
+                else {
+                    newContent = "Error: mode not found."
+                }
+            }
 
-            // Set the content of the output div
             outputP.textContent = newContent;
         });
     })
     .catch(error => {
-        console.error('Error fetching syllable list:', error);
+        console.error('Error fetching data:', error);
     });
+
