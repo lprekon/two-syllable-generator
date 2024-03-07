@@ -1,1 +1,40 @@
+body {
+    background-color: palegoldenrod;
+    font-family: Arial, sans-serif;
+    display: flex; // Add this line
+    flex-direction: column; // Add this line
+    justify-content: center; // Add this line
+    align-items: center; // Add this line
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 /* You can add global styles to this file, and also import other style files */
+h1 {
+    text-align: center;
+    color: darkred;
+}
+
+.output {
+    background-color: white;
+    border-radius: 10%;
+    padding: 1em;
+    padding: 1em;
+    margin-top: 5em;
+    text-align: center;
+    font-size: large;
+}
+
+button {
+    margin: 2em;
+    font-size: medium;
+    transition: transform 0.7s ease-in-out;
+    border-radius: 10%;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+}
