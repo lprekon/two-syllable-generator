@@ -1,14 +1,15 @@
 body {
     background-color: palegoldenrod;
     font-family: Arial, sans-serif;
-    display: flex; // Add this line
-    flex-direction: column; // Add this line
-    justify-content: center; // Add this line
-    align-items: center; // Add this line
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    color: darkred;
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -19,10 +20,10 @@ h1 {
 
 .output {
     background-color: white;
+    color: black;
     border-radius: 10%;
     padding: 1em;
     padding: 1em;
-    margin-top: 5em;
     text-align: center;
     font-size: large;
 }
@@ -37,4 +38,10 @@ button {
 img {
     width: 70px;
     height: 70px;
+}
+
+.note {
+    color: darkred;
+    font-size: small;
+    text-align: center;
 }

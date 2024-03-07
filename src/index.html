@@ -7,17 +7,22 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <h1>Two-Syllable Generator</h1>
-  <div class="vertical_spacer"></div>
+  <p class="instructions">Click the button to generate a new two-syllable word!</p>
+  <p class="note">Note: many syllables will have strange spellings. Sound it out before dismissing. Syllables are
+    hyphaneted to ease reading</p>
   <div class=" vertical-spacer" id="text-container">
     <p class="output" id="output">Word goes here</p>
   </div>
-  <button type="button"><img src="assets/rotate-left-circular-arrow-interface-symbol.svg"
+  <button type="button" id="main-button"><img src="assets/rotate-left-circular-arrow-interface-symbol.svg"
       alt="Generate a new word"></button>
 </body>
+
+<script src="main.js"></script>
 
 </html>
